@@ -324,7 +324,7 @@ class Kohana_Arr {
 
 		foreach ($array as $row)
 		{
-			if (isset($row[$key]))
+			if (array_key_exists($key, $row))
 			{
 				// Found a value in this row
 				$values[] = $row[$key];
