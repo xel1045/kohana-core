@@ -243,13 +243,19 @@ class Kohana_Arr {
 	 * @param   integer  ending number
 	 * @return  array
 	 */
-	public static function range($step = 10, $max = 100)
+	public static function range($step = 10, $max = 100, $start = null)
 	{
+		if ($start === NULL)
+		{
+			// Define the start to step for backward compatibility
+			$start = $step;
+		}
+	
 		if ($step < 1)
 			return array();
 
 		$array = array();
-		for ($i = $step; $i <= $max; $i += $step)
+		for ($i = $start; $i <= $max; $i += $step)
 		{
 			$array[$i] = $i;
 		}
